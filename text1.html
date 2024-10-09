@@ -1,0 +1,93 @@
+
+<!DOCTYPE HTML> 
+<html lang="zh-CN"> 
+<head> 
+<meta charset="utf-8"> 
+<link rel="stylesheet" href="bootstrap.min.css">
+<script src="jquery-3.5.1.min.js"></script>
+<title>圖片輪播</title> 
+<style> 
+#box { 
+width:506px; 
+height:306px; 
+margin: 20px auto; 
+border:3px solid black; 
+position:relative; 
+background-color:orange; 
+overflow: hidden; 
+/*overflow: hidden;*/ 
+} 
+.pic { 
+position: absolute; 
+width:500px; 
+height:300px; 
+line-height: 300px; 
+text-align: center; 
+font-size: 100px; 
+color:white; 
+bottom:0; 
+} 
+.red { 
+background-color:red; 
+} 
+.green { 
+background-color:green; 
+} 
+.blue { 
+background-color:blue; 
+} 
+.orange{ 
+background-color: orange; 
+} 
+.move { 
+bottom:300px; 
+transition:bottom 3s; /* 設定圖片移動消耗的時間*/ 
+} 
+</style> 
+</head> 
+<body> 
+<div id="box"> 
+<div id="pic1" class="pic red">1</div> 
+<div id="pic2" class="pic green">2</div> 
+<div id="pic3" class="pic blue">3</div> 
+<div id="pic3" class="pic orange">4</div> 
+</div> 
+<script> 
+window.addEventListener('load',function(){ 
+var pics = document.getElementsByClassName('pic'); 
+//為每個pic元素設定z-index的值 
+for(let i=0;i<pics.length;i  ){ 
+pics[i].style.zIndex = pics.length-i; 
+} 
+//迴圈播放圖片的函式 
+var loopPics = (function(){ 
+var index=0; 
+return function(pics,delay){ 
+var recall = function(pic){ 
+//給圖片增加move類，呼叫css的transition屬性播放移動動畫 
+pic.className  = ' move'; 
+setTimeout(function(){ 
+//取消圖片的move類，圖片返回原位 
+pic.className=pic.className.replace(' move',''); 
+//改變圖片組的堆疊順序。最外的圖片放到最下面，其他圖片依次向外移動 
+for(let i=0;i<pics.length;i  ){ 
+if(pics[i].style.zIndex==pics.length){ 
+pics[i].style.zIndex=1; 
+} else { 
+pics[i].style.zIndex=pics[i].style.zIndex*1 1; 
+} 
+} 
+index  ; 
+if(index==pics.length) index=0; 
+recall(pics[index]); 
+},delay); 
+}; 
+recall(pics[index]); 
+}; 
+})(); 
+//呼叫函式，迴圈播放。delay的時間需要大於等於css動畫裡設定的圖片移動時間 
+loopPics(pics,4000); 
+}); 
+</script> 
+</body> 
+</html>

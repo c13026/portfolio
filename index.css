@@ -1,0 +1,469 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.a0{
+  margin-top:-100px;
+}
+.aa{
+  margin:0px auto 80px;
+}
+.ac{
+  margin-top:40px;
+}
+.aaa{
+  overflow:hidden;
+}
+.aaa1{
+  background-color:rgba(194, 148, 96, 0.2);
+}
+.img1{
+  width: 75%;
+  height: auto;
+  min-height: 200px;
+  max-height: 100%;
+}
+#Img{
+  opacity: 0.35;
+  filter: alpha(opacity = 50);
+}
+#Img:hover{
+  opacity: 0.65;
+  filter: alpha(opacity = 50);
+}
+.top{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  text-align:center;
+  line-height: 70px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  /* position: absolute;
+  right:5px;
+  bottom: 5px; */
+}
+.aanav{
+    height: auto;
+}
+.carousel-control-prev{
+color: #000;
+}
+
+/* 以下為index */
+#a1{  /* toggle */
+  transform: rotate(90deg);
+  /* appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none; */
+  outline: 0;
+  cursor: pointer;
+  width: 4em;
+  height: 1.5em;
+  border-radius: 3em;
+  background-color: #ebebeb;
+  display: inline-block;
+  position:absolute;
+  bottom: 40px;
+  vertical-align: bottom;
+}
+#aa1 {
+  content: '';
+  width: 2em;
+  height: 2em;
+  background-color: #f2f2f2;
+  border-radius: 3em;
+  position:absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 2px 0px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+#a2{ /* top */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  text-align:center;
+  line-height: 70px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  background: #333;
+  color: #FAFAFC;
+}
+#a3{ /* card */
+  text-align:center;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 99px;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+.mytoggleanime {
+  animation: mytoggle 1.4s infinite alternate;
+}
+.mytoggle2anime {
+  animation: myttoggle 1.4s infinite alternate;
+}
+.mytopanime {
+  animation: mytop 1.4s infinite alternate;
+}
+.mycardanime {
+  animation: mycard 1.4s infinite alternate;
+}
+@keyframes mytoggle { /* 開關動作效果 */
+  0% {
+    background-color: #242424;
+    /* position:absolute; */
+  }
+  100% {
+    background-color: #F4f4f4;
+    /* position:absolute; */
+  }
+}
+@keyframes myttoggle {/* 開關上的圓點 */
+  0% {
+    background-color: #242424;
+    /* position:relative; */
+    left: 2em;
+    right: 0em;
+  }
+  10%{
+    background-color: #333;
+    /* position:relative; */
+    left: 2em;
+    right: 0em;
+  }
+  90%{
+    background-color:#ebebeb;
+    /* position:relative; */
+    left: 0em;
+    right: 2em;
+  }
+  100% {
+    background-color: #f2f2f2;
+    /* position:relative; */
+    left: 0em;
+    right: 2em;
+  }
+}
+@keyframes mytop { /* top動作效果 */
+  0% {
+    background: #FFF;
+    color: #000;
+  }
+  100% {
+    background: #000;
+    color: #FFF;
+  }
+}
+@keyframes mycard { /* card動作效果 */
+  0% {
+    background: #343434;
+    color: #ccd1d9;
+  }
+  100% {
+    background: #FFF;
+    color: #333;
+  }
+}
+/* 以上為index */
+
+
+/* 以下為resume */
+
+
+/* 以上為resume */
+
+/* 以下為connection */
+.linklogobg{
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-position: 50% 50%;
+  text-align: center;
+  line-height: 150px;
+}
+.linklogobg2{
+  width: 85px;
+  height: 85px;
+  background-size: contain;
+  background-position: 50% 50%;
+  text-align: center;
+  line-height: 85px;
+}
+.linebg {
+  background-image: url("line-qrcode.png");
+}
+
+.fbbg {
+  background-image: url("fb-qrcode.png");
+}
+
+.twitterbg {
+  background-image: url("twitter-qrcode.png");
+}
+
+.img01 {
+  width: 30px;
+  height: 30px;
+}
+.img02 {
+  width: 18px;
+  height: 18px;
+}
+/* 以上為connection */
+
+/* 以下為portfolio */
+.nav-tabs .btn1{
+box-sizing: border-box;
+/* margin: 0em -5px ;還沒改完 */
+}
+/* 以上為portfolio */
+
+/* 以下為開燈 */
+body {
+  font-family: "Quicksand", sans-serif;
+  background: #FAFAFC;
+  color: #4a4a4e;
+  transition: .2s all;
+  text-align: center;
+}
+body .top{
+  background: #333;
+  color: #FAFAFC;
+}
+body a{
+  color: #FAFAFC;
+}
+body .nav-tabs a{
+  color: #717177;
+}
+body .btn1{
+  color: #474749;
+  background-color: #c6d6e3;
+}
+body .dd {
+  color: #F00;
+}
+body a div:hover{
+  box-shadow: 0px 0px 15px #808080;
+}
+
+/* .navbar1套用bootstrap的.navbar-light開始 */
+body .navbar1 .navbar-brand {
+  color: rgba(0, 0, 0, 0.9);
+}
+body .navbar1 .navbar-brand:hover, .navbar1 .navbar-brand:focus {
+  color: rgba(0, 0, 0, 0.9);
+}
+body .navbar1 .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.5);
+}
+body .navbar1 .navbar-nav .nav-link:hover, .navbar1 .navbar-nav .nav-link:focus {
+  color: rgba(0, 0, 0, 0.7);
+}
+body .navbar1 .navbar-nav .nav-link.disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
+body .navbar1 .navbar-nav .show > .nav-link,
+body .navbar1 .navbar-nav .active > .nav-link,
+body .navbar1 .navbar-nav .nav-link.show,
+body .navbar1 .navbar-nav .nav-link.active {
+  color: rgba(0, 0, 0, 0.9);
+}
+body .navbar1 .navbar-toggler {
+  color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+body .navbar1 .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+body .navbar1 .navbar-text {
+  color: rgba(0, 0, 0, 0.5);
+}
+body .navbar1 .navbar-text a {
+  color: rgba(0, 0, 0, 0.9);
+}
+body .navbar1 .navbar-text a:hover, .navbar1 .navbar-text a:focus {
+  color: rgba(0, 0, 0, 0.9);
+}
+/* .navbar1已套用bootstrap的.navbar-light結束 */
+
+
+/* .bg1套用bootstrap的.bg-light開始 */
+body .bg1 {
+  background-color: #f8f9fa !important;
+}
+body a.bg1:hover,body a.bg1:focus,
+body button.bg1:hover,
+body button.bg1:focus {
+  background-color: #dae0e5 !important;
+}
+/* .bg1已套用bootstrap的.bg-light結束 */
+/* 以上為開燈 */
+
+
+
+
+/* 以下為關燈 */
+.dark {
+  background: #181818;
+  color: #fff;
+}
+.dark .top{
+  background: #fff;
+  color: #181818;
+}
+.dark a{
+  color: #FAFAFC;
+}
+.dark .btn1{
+  color: #ccd1d9;
+  background-color: #343a40;
+}
+.dark .dd {
+  color: #FF0;
+}
+.dark a div:hover{
+  box-shadow: 0px 0px 15px #ffffc1;
+}
+
+/* .dark .navbar1已套用bootstrap的.navbar-dark開始 */
+.dark .navbar1 .navbar-brand {
+  color: #fff;
+}
+.dark .navbar1 .navbar-brand:hover, .navbar1 .navbar-brand:focus {
+  color: #fff;
+}
+.dark .navbar1 .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark .navbar1 .navbar-nav .nav-link:hover,
+.navbar1 .navbar-nav .nav-link:focus {
+  color: rgba(255, 255, 255, 0.75);
+}
+.dark .navbar1 .navbar-nav .nav-link.disabled {
+  color: rgba(255, 255, 255, 0.25);
+}
+.dark .navbar1 .navbar-nav .show > .nav-link,
+.dark .navbar1 .navbar-nav .active > .nav-link,
+.dark .navbar1 .navbar-nav .nav-link.show,
+.dark .navbar1 .navbar-nav .nav-link.active {
+  color: #fff;
+}
+.dark .navbar1 .navbar-toggler {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.dark .navbar1 .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.dark .navbar1 .navbar-text {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark .navbar1 .navbar-text a {
+  color: #fff;
+}
+.dark .navbar1 .navbar-text a:hover, .navbar1 .navbar-text a:focus {
+  color: #fff;
+}
+/* .dark .navbar1已套用bootstrap的.navbar-dark結束 */
+
+/* .bg1套用bootstrap的.bg-dark開始 */
+.dark .bg1 {
+  background-color: #343a40 !important;
+}
+.dark a.bg1:hover,.dark  a.bg1:focus,
+.dark button.bg1:hover,
+.dark button.bg1:focus {
+  background-color: #1d2124 !important;
+}
+/* .bg1已套用bootstrap的.bg-dark結束 */
+/* 以上為關燈 */
+
+
+/* 按鈕造型 開始 */
+  input[type=checkbox].toggle-switch {
+    transform: rotate(90deg);/* 旋轉90度 */
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    outline: 0;
+    cursor: pointer;
+    /* 開關燈 按鈕軌道寬度 */
+    width: 4em;
+    /* 開關燈 按鈕軌道高度 */
+    height: 1.5em;
+    border-radius: 3em;
+    background-color: #ebebeb;
+    transition: background-color 0.09s ease-in-out;
+    position: relative;
+    bottom: -25px; /* 定位距離 下方邊界 */
+}
+  /* 分隔線 */
+input[type=checkbox].toggle-switch:active::after {
+  background-color: #f2f2f2;
+  padding-right: .8em;
+}
+input[type=checkbox].toggle-switch::after {
+  content: '';
+ /* toggle shape --
+height should equal width
+to maintain circle */
+  width: 2em;
+  height: 2em;
+  background-color: white;
+  border-radius: 3em;
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+  box-shadow: 2px 0px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+input[type=checkbox].toggle-switch:checked {
+  background-color: #333;
+}
+input[type=checkbox].toggle-switch:checked:active::after {
+  margin-left: -.8em;
+}
+input[type=checkbox].toggle-switch:checked::after {
+  left: 2em;
+  background-color: #242424;
+}
+
+.opts {
+  color: gray;
+}
+.opt-1 {
+  color: black;
+}
+.opt-1,
+.opt-2 {
+  transition: .2s all;
+}
+
+.active .opt-1 {
+  color: gray;
+}
+.active .opt-2 {
+  color: white;
+}
+.checkbox-wrap { 
+  margin-right: 20px; /* 外邊界 */
+  margin-bottom: 0px; /* 外邊界 */
+}
+/* 按鈕造型 結束 */

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test2 應徵者:林千瑞</title>
+    <script src="Chart.min.js"></script>
+	
+    <style>
+        @media screen and (min-width:1200px) {
+            div{
+                width: 60%;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1199px) {
+            div{
+                width: 80%;
+            }
+        }
+        @media screen and (max-width: 767px) {
+            div{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+
+<body onload="getData()">
+    <div class="canvas">
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+
+</html>
+<script>
+
+	var ctx = document.getElementById('canvas').getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			datasets: [],
+			labels: []
+		},
+		options: {
+			tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+			scales: {
+				yAxes: [{
+					id: 'left-y-axis',
+					type: 'linear',
+					position: 'left'
+				}, {
+					id: 'right-y-axis',
+					type: 'linear',
+					position: 'right'
+				}]
+			}
+		}
+	});
+	
+	function getData()
+	{
+		var labels = [];
+
+		const apis = [
+				  'https://run.mocky.io/v3/a34c5fe1-6025-4c9d-8402-5c777b685476',
+				  'https://run.mocky.io/v3/b6b3ee44-03f2-4d3d-84e1-1f2e68be6f7e?mocky-delay=375ms',
+				  'https://run.mocky.io/v3/8e7a5232-2974-4621-a818-0985e623169e?mocky-delay=750ms',
+				  'https://run.mocky.io/v3/9ef80280-6c04-4d01-ae55-e3846ba758de?mocky-delay=1125ms',
+				  'https://run.mocky.io/v3/7826ab76-0be2-4103-8377-9a2669942868?mocky-delay=1500ms'
+				];
+				
+		const bg_color = [ 'rgba(255, 99, 132, 0.2)',
+							'rgba(54, 162, 235, 0.2)',
+							'rgba(255, 206, 86, 0.2)',
+							'rgba(75, 192, 192, 1)',
+							'rgba(153, 102, 255, 1)'
+						];
+						
+		const line_color = [ 'rgba(255, 99, 132, 1)',
+							'rgba(54, 162, 235, 1)',
+							'rgba(255, 206, 86, 1)',
+							'rgba(75, 192, 192, 1)',
+							'rgba(153, 102, 255, 1)'
+						];
+		
+		for(let i=0; i<apis.length; i++)
+		{
+			var requestURL = apis[i];
+			const request = new XMLHttpRequest();
+			request.open('GET', requestURL);
+			request.responseType = 'json'; //將資料轉成json物件
+			request.send();
+
+			request.onload = function() {
+				result = request.response;
+
+				var array = [];
+				for(var j=0; j<result.data.length; j++)
+				{
+					if(labels.indexOf(result.data[j][0])<0) //過濾重複的日期
+					{
+						labels.push(result.data[j][0]); 						
+					}
+					
+					var a = labels.indexOf(result.data[j][0]);
+					array[a] = result.data[j][1]; //依照對應的日期填入值
+					
+				}				
+				
+				var yID="left-y-axis";
+				var type="bar";
+				var w = 2;
+				var flag = true;
+
+				if(i>2)
+				{
+					type="line";
+					yID="right-y-axis";
+					w = 5,
+					flag = false;
+					
+				}
+				
+				myChart.data.labels=labels;
+				myChart.data.datasets.push({
+					data: array,
+					label:"第"+(i+1)+"筆",
+					type: type,
+					backgroundColor: bg_color[i],
+					borderColor: line_color[i],
+					borderWidth: 2,
+					fill: flag,
+					order: (i+1),
+					yAxisID: yID });
+				
+				myChart.update(); //更新圖表
+			}
+		}
+	}
+
+</script>

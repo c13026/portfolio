@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text1 應徵者:林千瑞</title>
+    <script>
+        /* 初始化先載入資料 */
+        var data = null;
+        var requestURL = 'https://run.mocky.io/v3/9d5f33ec-0d2f-4743-aac9-5aef32f7badf';
+        var request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json'; //將資料轉成json物件
+        request.send();
+        request.onload = function () {
+            data = request.response;
+            alert('資料載入完成, 可以開始查詢'); //載入頁面初始載入資料, 不需要重新載入多次
+        }
+
+        function deleteData() {
+            var table = document.getElementById('table1');
+            var row = document.getElementsByTagName('tbody')[0];
+            if (row != null) {  //若有先前的查詢結果需要先刪除
+                row.parentNode.removeChild(row);
+            }
+        }
+
+        function showAllData() {
+            deleteData();
+
+            var _row = document.createElement("tbody");
+            for (var i = 0; i < data.length; i++) {
+                var _tr = _row.appendChild(document.createElement('tr'));
+                Object.values(data[i]).forEach(function (value) {
+                    var _td = _tr.appendChild(document.createElement('td')); //新增一個欄位
+                    _td.innerText = value; //把資料填入表格欄位
+                    _tr.appendChild(_td); //每增加一個欄位就塞在資料列中
+                });
+                _row.appendChild(_tr);
+            }
+            document.getElementById('table1').appendChild(_row); //在table內放入剛剛新增完成的資料列
+        }
+
+        /* 讀取URL的資料 */
+        function showData(obj, key, value) {
+            var _row = document.createElement("tbody");
+            var count = 0;
+            for (var i = 0; i < obj.length; i++) {
+                var flag = false; //記錄找到的狀態
+                Object.entries(obj[i]).forEach(([k, v]) => {
+                    if (key == k && v.indexOf(value) >= 0) {
+                        flag = true;
+                        count++; //計算符合條件的筆數
+                    }
+                });
+
+                //找到符合的資料, 顯示該筆完整資料
+                if (flag) {
+                    var _tr = _row.appendChild(document.createElement('tr'));
+                    Object.values(obj[i]).forEach(function (value) {
+                        var _td = _tr.appendChild(document.createElement('td')); //新增一個欄位
+                        _td.innerText = value; //把資料填入表格欄位
+                        _tr.appendChild(_td); //每增加一個欄位就塞在資料列中
+                    });
+                    _row.appendChild(_tr);
+                }
+
+            }
+            alert("找到" + count + "筆, 欄位:" + key + "包含內容" + value + "的資料!");
+            document.getElementById('table1').appendChild(_row); //在table內放入剛剛新增完成的資料列
+        }
+
+        /* 填入表格標題列 */
+        function showTitle() {
+            var title = ['id', 'first_name', 'last_name', 'email', 'gender', 'ip_address', 'login_at', 'description']; //資料結構的標題欄位
+            var _row = document.createElement("thead"); //新增table內的head段落
+            var _tr = _row.appendChild(document.createElement('tr')); //新增thead的資料列
+
+            for (var i = 0; i < title.length; i++) //依照標題欄位數量依序填入標題內容
+            {
+                var _th = _tr.appendChild(document.createElement('th')); //新增資料列中的欄位
+                _th.innerText = title[i]; //標題內容
+                _tr.appendChild(_th); //每增加一個欄位就塞在資料列中
+
+                var _opt = document.createElement('option');
+                _opt.value = title[i];
+                _opt.innerText = title[i];
+                document.getElementById('search').appendChild(_opt);
+            }
+
+            document.getElementById('table1').appendChild(_row); //在table內放入剛剛新增完成的標題列
+        }
+
+        /* 查詢資料 */
+        function searchData(key, value) {
+
+            if (value.length > 0) //檢查是否輸入搜尋內容
+            {
+                deleteData();
+
+                showData(data, key, value);
+
+            } else {
+                alert('請輸入搜尋內容');
+            }
+        }
+        // 分隔線
+        (function (document) {
+            'use strict';
+
+            // 建立 LightTableFilter
+            var LightTableFilter = (function (Arr) {
+
+                var _input;
+
+                // 資料輸入事件處理函數
+                function _onInputEvent(e) {
+                    _input = e.target;
+                    var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+                    Arr.forEach.call(tables, function (table) {
+                        Arr.forEach.call(table.tBodies, function (tbody) {
+                            Arr.forEach.call(tbody.rows, _filter);
+                        });
+                    });
+                }
+
+                // 資料篩選函數，顯示包含關鍵字的列，其餘隱藏
+                function _filter(row) {
+                    var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+                    row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+                }
+
+                return {
+                    // 初始化函數
+                    init: function () {
+                        var inputs = document.getElementsByClassName('light-table-filter');
+                        Arr.forEach.call(inputs, function (input) {
+                            input.oninput = _onInputEvent;
+                        });
+                    }
+                };
+            })(Array.prototype);
+
+            // 網頁載入完成後，啟動 LightTableFilter
+            document.addEventListener('readystatechange', function () {
+                if (document.readyState === 'complete') {
+                    LightTableFilter.init();
+                }
+            });
+
+        })(document);
+    </script>
+    <style>
+        /* xl(>1199) */
+        @media screen and (min-width:1200px) {
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            html,
+            body {
+                height: 100%;
+                background-color: #000;
+            }
+
+            .container {
+                margin: 0px auto;
+                min-height: 100%;
+                width: 80%;
+                background-color: #ff0;
+                text-align: center;
+            }
+
+            table {
+                border: 0;
+                border-collapse: collapse;
+                border-radius: 8px;
+                width: 100%;
+            }
+
+            th {
+                /* font-size: 18px; */
+                border: solid 1px #000;
+                padding: 12px 4px;
+                background-color: #ff8000;
+                /* color: #FFF; */
+            }
+
+            td {
+                border: solid 1px #000;
+                text-align: center;
+                padding: 4px;
+                color: #000080;
+            }
+
+            table tbody tr:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+
+            .b {
+                background-color: rgba(255, 255, 255, 0.5);
+                border-color: #000;
+                border-radius: 0.2rem;
+                margin: 1rem 0.25rem;
+                padding: 0.2rem;
+                color: #000;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .bb {
+                background-color: #F00;
+                width: 50%;
+                display: inline-flex;
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+
+            .bbb {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            /* .b2 {
+                display: none;
+            } */
+        }
+
+        /* xl(>1199)end */
+        /* lg(992~1199) */
+        @media screen and (min-width: 992px) and (max-width: 1199px) {
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            html,
+            body {
+                height: 100%;
+                background-color: #000;
+            }
+
+            .container {
+                margin: 0px auto;
+                min-height: 100%;
+                /* width: 80%; */
+                background-color: #ff0;
+                text-align: center;
+            }
+            table {
+                border: 0;
+                border-collapse: collapse;
+                border-radius: 8px;
+                width: 100%;
+            }
+
+            th {
+                border: solid 1px #000;
+                padding: 8px 4px;
+                background-color: #ff8000;
+                /* color: #FFF; */
+            }
+
+            td {
+                border: solid 1px #000;
+                text-align: center;
+                padding: 4px;
+                color: #000080;
+            }
+
+            table tbody tr:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            .b {
+                background-color: rgba(255, 255, 255, 0.5);
+                border-color: #000;
+                border-radius: 0.2rem;
+                margin: 1rem 0.25rem;
+                padding: 0.2rem;
+                color: #000;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .bb {
+                background-color: #F00;
+                width: 50%;
+                display: inline-flex;
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+
+            .bbb {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            /* .b2 {
+                display: none;
+            } */
+        }
+
+        /* lg(992~1199)end */
+        /* md(768~991) */
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            html,
+            body {
+                height: 100%;
+                background-color: #000;
+            }
+
+            .container {
+                margin: 0px auto;
+                min-height: 100%;
+                background-color: #ff0;
+                text-align: center;
+            }
+            table {
+                border: 0;
+                border-collapse: collapse;
+                border-radius: 8px;
+                width: 100%;
+            }
+
+            th {
+                border: solid 1px #000;
+                padding: 8px 4px;
+                background-color: #ff8000;
+                /* color: #FFF; */
+            }
+
+            td {
+                border: solid 1px #000;
+                text-align: center;
+                padding: 4px;
+                color: #000080;
+            }
+
+            table tbody tr:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            table thead th:nth-child(8),
+            table tbody td:nth-child(8),
+            table thead th:nth-child(5),
+            table tbody td:nth-child(5){
+                display:none;
+            }
+            
+            .b {
+                background-color: rgba(255, 255, 255, 0.5);
+                border-color: #000;
+                border-radius: 0.2rem;
+                margin: 1rem 0.25rem;
+                padding: 0.2rem;
+                color: #000;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .bb {
+                background-color: #F00;
+                width: 50%;
+                display: inline-flex;
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+
+            .bbb {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            /* .b1 {
+                display: none;
+            } */
+        }
+
+        /* md(768~991)end */
+        /* sm(576~767) */
+        @media screen and (min-width: 576px) and (max-width: 767px) {
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            html,
+            body {
+                height: 100%;
+                background-color: #000;
+            }
+
+            .container {
+                margin: 0px auto;
+                min-height: 100%;
+                background-color: #ff0;
+                text-align: center;
+
+            }
+            table {
+                border: 0;
+                border-collapse: collapse;
+                border-radius: 8px;
+                width: 100%;
+            }
+
+            th {
+                border: solid 1px #000;
+                padding: 8px 4px;
+                background-color: #ff8000;
+                /* color: #FFF; */
+            }
+
+            td {
+                border: solid 1px #000;
+                text-align: center;
+                padding: 4px;
+                color: #000080;
+            }
+
+            table tbody tr:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            table thead th:nth-child(8),
+            table tbody td:nth-child(8),
+            table thead th:nth-child(7),
+            table tbody td:nth-child(7),
+            /* table thead th:nth-child(6),
+            table tbody td:nth-child(6), */
+            table thead th:nth-child(4),
+            table tbody td:nth-child(4){
+                display:none;
+            }
+            .b {
+                background-color: rgba(255, 255, 255, 0.5);
+                border-color: #000;
+                border-radius: 0.2rem;
+                margin: 1rem 0.25rem;
+                padding: 0.2rem;
+                color: #000;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .bb {
+                background-color: #F00;
+                width: 50%;
+                display: inline-flex;
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+
+            .bbb {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            /* .b1 {
+                display: none;
+            } */
+        }
+
+        /* sm(576~767)end */
+        /* xs(<576) */
+        @media screen and (max-width: 575px) {
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            html,
+            body {
+                height: 100%;
+                background-color: #000;
+            }
+
+            .container {
+                margin: 0px auto;
+                min-height: 100%;
+                background-color: #ff0;
+                text-align: center;
+
+            }
+            table {
+                border: 0;
+                border-collapse: collapse;
+                border-radius: 8px;
+                width: 100%;
+            }
+
+            th {
+                border: solid 1px #000;
+                padding: 8px 4px;
+                background-color: #ff8000;
+                /* color: #FFF; */
+            }
+
+            td {
+                border: solid 1px #000;
+                text-align: center;
+                padding: 4px;
+                color: #000080;
+            }
+
+            table tbody tr:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            table thead th:nth-child(8),
+            table tbody td:nth-child(8),
+            table thead th:nth-child(7),
+            table tbody td:nth-child(7),
+            table thead th:nth-child(6),
+            table tbody td:nth-child(6),
+            /* table thead th:nth-child(5),
+            table tbody td:nth-child(5), */
+            table thead th:nth-child(4),
+            table tbody td:nth-child(4){
+                display:none;
+            }
+            .b {
+                background-color: rgba(255, 255, 255, 0.5);
+                border-color: #000;
+                border-radius: 0.2rem;
+                margin: 1rem 0.25rem;
+                padding: 0.2rem;
+                color: #000;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .bb {
+                background-color: #F00;
+                width: 50%;
+                display: inline-flex;
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+
+            .bbb {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            /* .b1 {
+                display: none;
+            } */
+        }
+
+        /* xs(<575)end */
+    </style>
+</head>
+
+<body onload="showTitle()">
+    <!-- 根據資料結構填入表格標題列 -->
+
+    <!-- 題目1. 請從 https://run.mocky.io/v3/9d5f33ec-0d2f-4743-aac9-5aef32f7badf 取得資料，
+        並設計一畫面呈現資料內容、提供搜尋資料功能，
+        請考慮使用者在手機及電腦上的操作行為 (不要使用樣式框架，如bootstrap) -->
+
+    <div class="container">
+        <div class="bbb">
+            <div class="bb">
+                <button class="b b1" type="button" onclick="showAllData()">全部顯示</button>
+                <button class="b b1" type="button" onclick="deleteData()">全部隱藏</button>
+                <!-- <button class="b b2" type="button">上一筆</button>
+                <button class="b b2" type="button">下一筆</button> -->
+            </div>
+            <div class="bb">
+                <input class="b light-table-filter" type="search" data-table="order-table" placeholder="請輸入關鍵字">
+            </div>
+        </div>
+        <div>
+            <table class="order-table a" id="table1">
+
+                <thead>
+                    <th>id</th>
+                    <th>first_name</th>
+                    <th>last_name</th>
+                    <th>email</th>
+                    <th>gender</th>
+                    <th>ip_address</th>
+                    <th>login_at</th>
+                    <th>description</th>
+                </thead>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

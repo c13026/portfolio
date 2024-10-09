@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery-3.5.1.min.js"></script>
+    <style>
+        .bg {
+            background-color: #696969;
+            min-height: 200px;
+            color: #FFF;
+        }
+
+        .container {
+            margin: auto auto;
+        }
+        p{
+            margin: 0px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("a").click(function () {
+                $("#div1").slideToggle();
+            });
+
+        });
+        // 自訂函數  函數名稱(引數[函數中的變數])
+        function mxD(xx, oo) {
+            document.getElementById('div1').style.display = xx;
+            document.getElementById('B').style.display = oo;
+            document.getElementById('C').style.display = xx;
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+
+        </div>
+    </header>
+    <main>
+        <div class="container">
+
+        </div>
+    </main>
+    <footer class="bg">
+        <div class="container">
+            <div class="row ">
+                <div class="col">
+                    <a href="javascript:;" focus="mxD('none','block')" mouseover="mxD('block','none')">關於行動學習網</a>
+                    <div id="div1">
+                        <p>成立宗旨</p>
+                        <p>服務據點</p>
+                        <p>百分百滿意保證</p>
+                        <p>會員服務條款</p>
+                        <p>個資保護聲明</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <a href="javascript:;">學習服務</a>
+                    <div id="div2">
+                        <p>考古題練習網</p>
+                        <p>落點分析服務</p>
+                        <p>夥伴網</p>
+                        <p>學測五採四查詢</p>
+                        <p>國家考試日程表</p>
+                </div>
+                </div>
+                <div class="col">
+                    <a href="javascript:;">合作夥伴</a>
+                    <div id="div3">
+                    合作廠商
+                    合作提案</div>
+                </div>
+                <div class="col">
+                    <a href="javascript:;">客服專區</a>
+                    <div id="div4">
+                    上課方式
+                    我要發問
+                    獎學金申請
+                    行動關心服務</div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </footer>
+</body>
+
+</html>

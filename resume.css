@@ -1,0 +1,454 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.a0{
+  margin-top:-100px;
+}
+.aa{
+  margin:0px auto 80px;
+}
+.ac{
+  margin-top:80px;
+}
+.aaa{
+  overflow:scroll;
+}
+.aaa1{
+  background-color:rgba(194, 148, 96, 0.2);
+}
+.img1{
+  width: 75%;
+  height: auto;
+  min-height: 200px;
+  max-height: 100%;
+}
+#Img{
+  opacity: 0.35;
+  filter: alpha(opacity = 50);
+}
+#Img:hover{
+  opacity: 0.65;
+  filter: alpha(opacity = 50);
+}
+.h300{
+  height: 300px;
+}
+.top{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  text-align:center;
+  line-height: 70px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.aanav{
+  height: auto;
+}
+.carousel-control-prev{
+  color: #000;
+}
+
+/* 以下為開燈 */
+body {
+  font-family: "Quicksand", sans-serif;
+  background: #FAFAFC;
+  color: #4a4a4e;
+  transition: .2s all;
+  text-align: center;
+}
+body .top{
+  background: #333;
+  color: #FAFAFC;
+}
+body a{
+  color: #FAFAFC;
+}
+body .nav-tabs a{
+  color: #717177;
+}
+body .btn1{
+  color: #474749;
+  background-color: #c6d6e3;
+}
+  /* body .tooltip-inner{
+    background-color: red;
+    } */
+
+/* .navbar1套用bootstrap的.navbar-light開始 */
+body .navbar1 .navbar-brand {
+  color: rgba(0, 0, 0, 0.9);
+}
+body .navbar1 .navbar-brand:hover, .navbar1 .navbar-brand:focus {
+  color: rgba(0, 0, 0, 0.9);
+}
+body .navbar1 .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.5);
+}
+body .navbar1 .navbar-nav .nav-link:hover, .navbar1 .navbar-nav .nav-link:focus {
+  color: rgba(0, 0, 0, 0.7);
+}
+body .navbar1 .navbar-nav .nav-link.disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
+body .navbar1 .navbar-nav .show > .nav-link,
+body .navbar1 .navbar-nav .active > .nav-link,
+body .navbar1 .navbar-nav .nav-link.show,
+body .navbar1 .navbar-nav .nav-link.active {
+  color: rgba(0, 0, 0, 0.9);
+}
+body .navbar1 .navbar-toggler {
+  color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+body .navbar1 .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+body .navbar1 .navbar-text {
+  color: rgba(0, 0, 0, 0.5);
+}
+body .navbar1 .navbar-text a {
+  color: rgba(0, 0, 0, 0.9);
+}
+body .navbar1 .navbar-text a:hover, .navbar1 .navbar-text a:focus {
+  color: rgba(0, 0, 0, 0.9);
+}
+/* .navbar1已套用bootstrap的.navbar-light結束 */
+
+
+/* .bg1套用bootstrap的.bg-light開始 */
+body .bg1 {
+  background-color: #f8f9fa !important;
+}
+body a.bg1:hover,body a.bg1:focus,
+body button.bg1:hover,
+body button.bg1:focus {
+  background-color: #dae0e5 !important;
+}
+/* .bg1已套用bootstrap的.bg-light結束 */
+
+
+/* 設定滾動視窗的light開始 */
+body header {
+  background-color: #ebefed;
+}
+body header .overlay h1 {
+  text-shadow: 25px -15px rgba(25, 42, 46, 0.04);
+  color: #142124;
+}
+body header .parallax .one {
+  background-image: url("svg/mountains-1.svg");
+  z-index: 4;
+}
+body header .parallax .two {
+  background-image: url("svg/mountains-2.svg");
+  z-index: 3;
+}
+body header .parallax .three {
+  background-image: url("svg/mountains-3.svg");
+  z-index: 2;
+}
+body header .parallax .four {
+  background-image: url("svg/mountains-4.svg");
+  z-index: 1;
+}
+body header .parallax .five {
+  background-image: url("svg/mountains-5.svg");
+  z-index: 0;
+}
+body main {
+  background-color: #e8f4f8;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08);
+}
+body main .container {
+  color: #192a2e;
+}
+body main .container pre {
+  background-color: rgba(25, 42, 46, 0.05);
+}
+body main .container a {
+  color: #192a2e;
+}
+/* 設定滾動視窗的light結束 */
+/* 以上為開燈 */
+
+
+
+
+/* 以下為關燈 */
+  .dark {
+    background: #181818;
+    color: #fff;
+  }
+  .dark .top{
+    background: #fff;
+    color: #181818;
+  }
+  .dark a{
+    color: #FAFAFC;
+  }
+  .dark .btn1{
+    color: #ccd1d9;
+    background-color: #343a40;
+  }
+    /* .dark .tooltip-inner{
+    background-color: red;
+    } */
+
+  /* .dark .navbar1已套用bootstrap的.navbar-dark開始 */
+  .dark .navbar1 .navbar-brand {
+    color: #fff;
+  }
+  .dark .navbar1 .navbar-brand:hover, .navbar1 .navbar-brand:focus {
+    color: #fff;
+  }
+  .dark .navbar1 .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .dark .navbar1 .navbar-nav .nav-link:hover,
+  .navbar1 .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .dark .navbar1 .navbar-nav .nav-link.disabled {
+    color: rgba(255, 255, 255, 0.25);
+  }
+  .dark .navbar1 .navbar-nav .show > .nav-link,
+  .dark .navbar1 .navbar-nav .active > .nav-link,
+  .dark .navbar1 .navbar-nav .nav-link.show,
+  .dark .navbar1 .navbar-nav .nav-link.active {
+    color: #fff;
+  }
+  .dark .navbar1 .navbar-toggler {
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  .dark .navbar1 .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  .dark .navbar1 .navbar-text {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .dark .navbar1 .navbar-text a {
+    color: #fff;
+  }
+  .dark .navbar1 .navbar-text a:hover, .navbar1 .navbar-text a:focus {
+    color: #fff;
+  }
+  /* .dark .navbar1已套用bootstrap的.navbar-dark結束 */
+
+ /* .bg1套用bootstrap的.bg-dark開始 */
+ .dark .bg1 {
+    background-color: #343a40 !important;
+  }
+  .dark a.bg1:hover,.dark  a.bg1:focus,
+  .dark button.bg1:hover,
+  .dark button.bg1:focus {
+    background-color: #1d2124 !important;
+  }
+/* .bg1已套用bootstrap的.bg-dark結束 */
+
+/* 設定滾動視窗的dark開始 */
+.dark header {
+  background-color: #142124;
+}
+.dark header .overlay h1 {
+  text-shadow: 25px -15px rgba(25, 42, 46, 0.04);
+  color: #b1cdd3;
+}
+.dark header .parallax .one {
+  background-image: url("svg/mountainsdark-1.svg");
+  z-index: 4;
+}
+.dark header .parallax .two {
+  background-image: url("svg/mountainsdark-2.svg");
+  z-index: 3;
+}
+.dark header .parallax .three {
+  background-image: url("svg/mountainsdark-3.svg");
+  z-index: 2;
+}
+.dark header .parallax .four {
+  background-image: url("svg/mountainsdark-4.svg");
+  z-index: 1;
+}
+.dark header .parallax .five {
+  background-image: url("svg/mountainsdark-5.svg");
+  z-index: 0;
+}
+.dark main {
+  background-color: #000;
+  box-shadow: 0px 5px 10px rgba(232, 244, 248, 0.08);
+}
+.dark main .container {
+  color: #aabde6;
+}
+.dark main .container pre {
+  background-color: rgba(164, 190, 196, 0.05);
+}
+.dark main .container a {
+  color: #85beca;
+}
+/* 設定滾動視窗的dark結束 */
+
+  /* 按鈕造型 開始 */
+    input[type=checkbox].toggle-switch {
+      /* 旋轉90度 */
+    transform: rotate(90deg);
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    outline: 0;
+    cursor: pointer;
+    /* 開關燈 按鈕軌道寬度 */
+    width: 4em;
+    /* 開關燈 按鈕軌道高度 */
+    height: 1.5em;
+    border-radius: 3em;
+    background-color: #ebebeb;
+    transition: background-color 0.09s ease-in-out;
+    position: relative;
+    bottom: -25px; /* 定位距離 下方邊界 */
+  }
+    /* 分隔線 */
+  input[type=checkbox].toggle-switch:active::after {
+    background-color: #f2f2f2;
+    padding-right: .8em;
+  }
+  input[type=checkbox].toggle-switch::after {
+    content: '';
+   /* toggle shape --
+  height should equal width
+  to maintain circle */
+    width: 2em;
+    height: 2em;
+    background-color: white;
+    border-radius: 3em;
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+    box-shadow: 2px 0px 5px 0 rgba(0, 0, 0, 0.15);
+  }
+  
+  input[type=checkbox].toggle-switch:checked {
+    background-color: #333;
+  }
+  input[type=checkbox].toggle-switch:checked:active::after {
+    margin-left: -.8em;
+  }
+  input[type=checkbox].toggle-switch:checked::after {
+    left: 2em;
+    background-color: #242424;
+  }
+  
+  .opts {
+    color: gray;
+  }
+  .opt-1 {
+    color: black;
+  }
+  .opt-1,
+  .opt-2 {
+    transition: .2s all;
+  }
+  
+  .active .opt-1 {
+    color: gray;
+  }
+  .active .opt-2 {
+    color: white;
+  }
+  .checkbox-wrap { 
+    margin-right: 20px; /* 外邊界 */
+    margin-bottom: 0px; /* 外邊界 */
+  }
+/* 按鈕造型 結束 */
+
+
+
+
+  /* 視差滾動頁面的css 開始 */
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: "Quicksand", sans-serif;
+  }
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+  header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  header .overlay h1 {
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 4rem;
+    mix-blend-mode: overlay;
+  }
+  header .overlay h1 span {
+    margin-top: 0.25em;
+    padding-top: 0.25em;
+    display: block;
+    letter-spacing: 5px;
+    font-size: 1.5rem;
+  }
+  header .parallax {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  header .parallax div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: 50% 75%;
+    background-repeat: no-repeat;
+    background-size: 310%;
+  }
+  main {
+    position: relative;
+    margin-bottom: 15vh;
+    padding: 2em 4em;
+    min-height: 85vh;
+  }
+  main .container {
+    font-size: 1rem;
+  }
+  main .container pre {
+    padding: 1em;
+    border-radius: 0.25em;
+  }
+  main .container a {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    border-bottom: 2px dashed;
+  }
+  /* 視差滾動頁面的css 結束 */
